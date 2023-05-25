@@ -24,7 +24,9 @@
 			<nav class="header-nav">
 				<a href="./index.html" class="logo-header link">Web<span class="logo-header-span">Studio</span></a>
 				<ul class="header-nav-list list">
-					<li><a href="./index.html" class="header-list-item-link link">Studio</a></li>
+					<li class="nav-studio">
+						<a href="./index.html" class="header-nav-studio-active header-list-item-link link">Studio</a>
+					</li>
 					<li><a href="./portfolio.html" class="header-list-item-link link">Portfolio</a></li>
 					<li><a href="" class="header-list-item-link link">Contacts</a></li>
 				</ul>
@@ -45,7 +47,12 @@
 		<section class="section-first">
 			<div class="container-hero container">
 				<h1 class="main-tittle">Effective Solutions for Your Business</h1>
-				<button type="button" class="button">Order Service</button>
+				<button type="button" class="button" data-modal-open>Order Service</button>
+				<div class="backdrop is-hidden" data-modal>
+					<div class="modal">
+						<button type="button" data-modal-close></button>
+					</div>
+				</div>
 			</div>
 		</section>
 		<section class="section-second">
@@ -277,34 +284,46 @@
 				<h2 class="subtitle">Customers</h2>
 				<ul class="fifth-list list">
 					<li class="fifth-list-item">
-						<svg class="fifth-svg" width="104" height="56">
-							<use href="./images/icons.svg#icon-Logo-1"></use>
-						</svg>
+						<a href="#" class="fifth-link link">
+							<svg class="fifth-svg" width="104" height="56">
+								<use href="./images/icons.svg#icon-Logo-1"></use>
+							</svg>
+						</a>
 					</li>
 					<li class="fifth-list-item">
-						<svg class="fifth-svg" width="104" height="56">
-							<use href="./images/icons.svg#icon-Logo-2"></use>
-						</svg>
+						<a href="#" class="fifth-link link">
+							<svg class="fifth-svg" width="104" height="56">
+								<use href="./images/icons.svg#icon-Logo-2"></use>
+							</svg>
+						</a>
 					</li>
 					<li class="fifth-list-item">
-						<svg class="fifth-svg" width="104" height="56">
-							<use href="./images/icons.svg#icon-Logo-3"></use>
-						</svg>
+						<a href="#" class="fifth-link link">
+							<svg class="fifth-svg" width="104" height="56">
+								<use href="./images/icons.svg#icon-Logo-3"></use>
+							</svg>
+						</a>
 					</li>
 					<li class="fifth-list-item">
-						<svg class="fifth-svg" width="104" height="56">
-							<use href="./images/icons.svg#icon-Logo-4"></use>
-						</svg>
+						<a href="#" class="fifth-link link">
+							<svg class="fifth-svg" width="104" height="56">
+								<use href="./images/icons.svg#icon-Logo-4"></use>
+							</svg>
+						</a>
 					</li>
 					<li class="fifth-list-item">
-						<svg class="fifth-svg" width="104" height="56">
-							<use href="./images/icons.svg#icon-Logo-5"></use>
-						</svg>
+						<a href="#" class="fifth-link link">
+							<svg class="fifth-svg" width="104" height="56">
+								<use href="./images/icons.svg#icon-Logo-5"></use>
+							</svg>
+						</a>
 					</li>
 					<li class="fifth-list-item">
-						<svg class="fifth-svg" width="104" height="56">
-							<use href="./images/icons.svg#icon-Logo-6"></use>
-						</svg>
+						<a href="#" class="fifth-link link">
+							<svg class="fifth-svg" width="104" height="56">
+								<use href="./images/icons.svg#icon-Logo-6"></use>
+							</svg>
+						</a>
 					</li>
 				</ul>
 			</div>
@@ -352,6 +371,7 @@
 			</div>
 		</div>
 	</footer>
+	<script src="./js/modal.js"></script>
 </body>
 
 </html>
