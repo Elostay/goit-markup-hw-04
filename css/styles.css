@@ -21,11 +21,7 @@ h6,
 p {
 	margin: 0;
 }
-:hover,
-:focus {
-	transition-duration: 250ms;
-	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
+
 /*----------------------------------------------------*/
 .wrapper {
 }
@@ -50,6 +46,8 @@ p {
 	border-bottom: 1px solid #e7e9fc;
 	padding-top: 24px;
 	padding-bottom: 24px;
+	box-shadow: 0px 2px 1px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16),
+		0px 1px 6px rgba(46, 47, 66, 0.08);
 }
 .container-header {
 	display: flex;
@@ -109,33 +107,40 @@ p {
 	line-height: 1.5;
 	color: #434455;
 	letter-spacing: 0.02em;
+	transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .header-list-item-link-address:focus,
 .header-list-item-link-address:hover {
 	color: #404bbf;
 }
 .nav-studio {
-	display: flex;
-	flex-direction: column;
 }
-.header-nav-studio-active.header-list-item-link {
-	padding: 0;
+.header-nav-studio-active {
+	color: #404bbf;
+	position: relative;
+	transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .nav-studio:after {
 	content: "";
-	background: #404bbf;
+	position: absolute;
+	left: 0;
+	bottom: -1px;
+	background-color: #404bbf;
 	height: 4px;
 	border-radius: 2px;
 }
 .nav-portfolio {
-	display: flex;
-	flex-direction: column;
 }
-.header-nav-portfolio-active.header-list-item-link {
-	padding: 0;
+.header-nav-portfolio-active {
+	position: relative;
+	color: #404bbf;
+	transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.nav-portfolio:after {
+.nav-portfolio::after {
 	content: "";
+	position: absolute;
+	left: 0;
+	bottom: -1px;
 	background: #404bbf;
 	height: 4px;
 	border-radius: 2px;
@@ -147,7 +152,10 @@ p {
 }
 .container-footer {
 	display: flex;
-	gap: 120px;
+	align-items: baseline;
+}
+.footer-box {
+	margin-right: 120px;
 }
 .footer-sm {
 	font-weight: 500;
@@ -160,6 +168,9 @@ p {
 	display: flex;
 	gap: 16px;
 }
+.footer-icon {
+	fill: #f4f4fd;
+}
 .footer-icon-svg {
 	width: 100%;
 	height: 100%;
@@ -167,6 +178,9 @@ p {
 	padding: 8px;
 	border-radius: 50%;
 	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .footer-icon-svg:focus,
 .footer-icon-svg:hover {
@@ -205,10 +219,8 @@ p {
 	background-image: linear-gradient(to bottom, rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),
 		url(../images/people-office.jpg);
 	background-repeat: no-repeat;
-	background-size: 1440px;
-	max-width: 1440px;
-	margin-left: auto;
-	margin-right: auto;
+	background-size: cover;
+	background-position: center;
 	padding: 188px 0px;
 }
 
@@ -238,6 +250,7 @@ p {
 	padding: 16px 32px;
 	align-self: center;
 	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+	transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .button:focus,
 .button:hover {
@@ -247,18 +260,52 @@ p {
 /*----------------------------------------------------*/
 .backdrop {
 	position: fixed;
-	width: 100vh;
-	height: 100vh;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
 	background-color: rgba(46, 47, 66, 0.4);
+	transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .is-hidden {
 	opacity: 0;
+	visibility: hidden;
 	pointer-events: none;
 }
 .modal {
-	width: 1440px;
-	margin: 0 auto;
-	background-color: #ffffff;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%) scale(1);
+	width: 408px;
+	min-height: 584px;
+	box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 2px 1px rgba(0, 0, 0, 0.2);
+	border-radius: 4px;
+	transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.modal-button {
+	position: absolute;
+	top: 24px;
+	right: 24px;
+	width: 24px;
+	height: 24px;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #e7e9fc;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	padding: 0;
+	cursor: pointer;
+	transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.modal-button:hover,
+.modal-button:focus {
+	border: none;
+	fill: #ffffff;
+}
+.modal-button-svg {
+	transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 /*----------------------------------------------------*/
 .section-second {
@@ -279,6 +326,10 @@ p {
 .second-item-svg {
 }
 .svg-box {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 8px;
 	background: #f4f4fd;
 	border-radius: 4px;
 	width: 264px;
@@ -350,13 +401,14 @@ p {
 	text-align: center;
 }
 .team-box {
-	padding: 32px 16px;
+	padding: 32px 0;
 }
 .team-title {
 	text-align: center;
 }
 .fourth-icon-list {
 	display: flex;
+	justify-content: center;
 	margin-top: 8px;
 	gap: 24px;
 }
@@ -371,14 +423,20 @@ p {
 	padding: 12px;
 	border-radius: 50%;
 	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .fourth-icon-svg:focus,
 .fourth-icon-svg:hover {
 	background-color: #404bbf;
 }
-
+.fourth-icon {
+	fill: #f4f4fd;
+}
 /*----------------------------------------------------*/
 .section-fifth {
+	padding-top: 120px;
 	padding-bottom: 120px;
 }
 .fifth-list {
@@ -403,6 +461,7 @@ p {
 	align-items: center;
 	justify-content: center;
 	padding: 16px 32px;
+	transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .fifth-link:focus,
 .fifth-link:hover {
@@ -434,6 +493,8 @@ p {
 	letter-spacing: 0.04em;
 	cursor: pointer;
 	padding: 12px 24px;
+	transition: 250ms cubic-bezier(0.4, 0, 0.2, 1), background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+		border-color 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .button-category:focus,
 .button-category:hover {
@@ -471,6 +532,20 @@ p {
 	position: relative;
 	overflow: hidden;
 }
+.link-category {
+	display: block;
+	transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.link-category:focus,
+.link-category:hover {
+	transform: translateY(0%);
+	box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16),
+		0px 2px 1px rgba(46, 47, 66, 0.08);
+}
+.category-box-img {
+	position: relative;
+	overflow: hidden;
+}
 .overlay {
 	position: absolute;
 	top: 0;
@@ -484,13 +559,17 @@ p {
 }
 
 .overlay-text {
+	position: absolute;
+	top: 0;
 	font-size: 16px;
 	line-height: 1.5;
 	letter-spacing: 0.02em;
 	color: #f4f4fd;
-	padding-top: 40px;
-	padding-left: 32px;
-	padding-right: 32px;
+	padding: 40px 32px;
+	background-color: #4d5ae5;
+	height: 100%;
+	width: 100%;
+	transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .category-item:hover .overlay {
 	height: 300px;
